@@ -1,6 +1,7 @@
 ﻿global using AllenEcommerceBlazorApp.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using AllenEcommerceBlazorApp.Server.Data;
+global using AllenEcommerceBlazorApp.Server.Services.ProductServices;
 
 using Microsoft.AspNetCore.ResponseCompression;
 
@@ -18,6 +19,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 

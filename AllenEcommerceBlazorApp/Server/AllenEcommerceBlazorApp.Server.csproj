@@ -29,8 +29,12 @@
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Data\" />
+    <None Remove="Services\" />
+    <None Remove="Services\ProductServices\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\ProductServices\" />
   </ItemGroup>
 </Project>
