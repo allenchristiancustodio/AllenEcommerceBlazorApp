@@ -63,3 +63,7 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
+.price {
+    color: green;
+}
+
