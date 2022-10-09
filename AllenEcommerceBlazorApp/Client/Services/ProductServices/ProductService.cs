@@ -13,6 +13,8 @@ namespace AllenEcommerceBlazorApp.Client.Services.ProductServices
 
         public List<Product> Products { get; set; } = new List<Product>();
 
+        public event Action ProductChanged;
+
         public async Task<ServiceResponse<Product>> GetProduct(int productId)
         {
             var result = await _http.GetFromJsonAsync<ServiceResponse<Product>>($"api/product/{productId}");
@@ -20,12 +22,17 @@ namespace AllenEcommerceBlazorApp.Client.Services.ProductServices
             return result;
         }
 
-        public async Task GetProducts()
+        public async Task GetProducts(string? categoryUrl = null)
         {
-            var result = await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/product");
-            if(result !=null && result.Data !=null)
+            var result = categoryUrl == null ?
+                await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>("api/product") :
+                 await _http.GetFromJsonAsync<ServiceResponse<List<Product>>>($"api/product/category/{categoryUrl}");
+            if (result !=null && result.Data !=null)
                 Products = result.Data;
+
+            ProductChanged.Invoke();
         }
+
     }
 }
 
