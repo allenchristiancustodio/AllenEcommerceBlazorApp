@@ -32,6 +32,8 @@ namespace AllenEcommerceBlazorApp.Server.Controllers
             return Ok(result);
         }
 
+        //select a specific product
+
         [HttpGet("{productId}")]
         public async Task<ActionResult<ServiceResponse<Product>>> GetProduct(int productId)
         {
@@ -40,6 +42,8 @@ namespace AllenEcommerceBlazorApp.Server.Controllers
             return Ok(result);
         }
 
+        // get product by category
+
         [HttpGet("category/{categoryUrl}")]
         public async Task<ActionResult<ServiceResponse<Product>>> GetProductByCategory(string categoryUrl)
         {
@@ -47,6 +51,21 @@ namespace AllenEcommerceBlazorApp.Server.Controllers
             return Ok(result);
         }
 
+        //search method
+
+        [HttpGet("search/{searchText}")]
+        public async Task<ActionResult<ServiceResponse<Product>>> SearchProducts(string searchText)
+        {
+            var result = await _productService.SearchProducts(searchText);
+            return Ok(result);
+        }
+
+        [HttpGet("searchsuggestions/{searchText}")]
+        public async Task<ActionResult<ServiceResponse<Product>>> GetProductSearchSuggestion(string searchText)
+        {
+            var result = await _productService.GetProductSearchSuggestions(searchText);
+            return Ok(result);
+        }
 
     }
 }
