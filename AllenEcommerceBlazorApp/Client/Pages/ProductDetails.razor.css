@@ -19,7 +19,9 @@
     flex: 1;
 }
 
-
+.original-price {
+    text-decoration:line-through;
+}
 .media-img-wrapper {
 
     max-height:500px;
