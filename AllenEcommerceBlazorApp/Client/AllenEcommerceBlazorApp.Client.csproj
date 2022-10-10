@@ -12,6 +12,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.9" PrivateAssets="all" />
+    <PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,10 +23,13 @@
     <None Remove="Services\" />
     <None Remove="Services\ProductServices\" />
     <None Remove="Services\CategoryService\" />
+    <None Remove="Blazored.LocalStorage" />
+    <None Remove="Services\CartService\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Services\ProductServices\" />
     <Folder Include="Services\CategoryService\" />
+    <Folder Include="Services\CartService\" />
   </ItemGroup>
 </Project>
