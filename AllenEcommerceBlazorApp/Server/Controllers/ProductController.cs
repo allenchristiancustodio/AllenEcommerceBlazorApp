@@ -1,4 +1,4 @@
-﻿using System;
+﻿        using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -64,6 +64,14 @@ namespace AllenEcommerceBlazorApp.Server.Controllers
         public async Task<ActionResult<ServiceResponse<Product>>> GetProductSearchSuggestion(string searchText)
         {
             var result = await _productService.GetProductSearchSuggestions(searchText);
+            return Ok(result);
+        }
+
+        [HttpGet("featured")]
+        public async Task<ActionResult<ServiceResponse<Product>>> GetFeaturedProducts()
+        {
+
+            var result = await _productService.GetFeaturedProducts();
             return Ok(result);
         }
 

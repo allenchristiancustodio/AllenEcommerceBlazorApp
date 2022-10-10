@@ -1,0 +1,14 @@
+﻿@inject NavigationManager NavigationManager
+        <div class="logo-container">
+        <button @onclick="GoToHome" class="btn btn-outline-primary homebutton">
+            Allen Shop
+        </button>
+        </div>
+        @code {
+
+            private void GoToHome()
+            {
+                NavigationManager.NavigateTo("");
+            }
+
+        }

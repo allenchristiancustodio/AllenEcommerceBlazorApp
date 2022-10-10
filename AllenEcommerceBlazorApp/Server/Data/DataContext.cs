@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 namespace AllenEcommerceBlazorApp.Server.Data
 {
     public class DataContext : DbContext
@@ -56,6 +56,7 @@ namespace AllenEcommerceBlazorApp.Server.Data
                          Title = "The Hunger Games",
                          Description = "The Hunger Games is a 2008 dystopian novel by the American writer Suzanne Collins. It is written in the perspective of 16-year-old Katniss Everdeen, who lives in the future, post-apocalyptic nation of Panem in North America. The Capitol, a highly advanced metropolis, exercises political control over the rest of the nation. The Hunger Games is an annual event in which one boy and one girl aged 12–18 from each of the twelve districts surrounding the Capitol are selected by lottery to compete in a televised battle royale to the death.",
                          ImageUrl = "https://upload.wikimedia.org/wikipedia/en/d/dc/The_Hunger_Games.jpg",
+                         Featured = true,
                   
                          CategoryId = 1
                      },
@@ -83,6 +84,7 @@ namespace AllenEcommerceBlazorApp.Server.Data
                          Title = "The Matrix",
                          Description = "The Matrix is a 1999 science fiction action film written and directed by the Wachowskis, and produced by Joel Silver. Starring Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving, and Joe Pantoliano, and as the first installment in the Matrix franchise, it depicts a dystopian future in which humanity is unknowingly trapped inside a simulated reality, the Matrix, which intelligent machines have created to distract humans while using their bodies as an energy source. When computer programmer Thomas Anderson, under the hacker alias \"Neo\", uncovers the truth, he \"is drawn into a rebellion against the machines\" along with other people who have been freed from the Matrix.",
                          ImageUrl = "https://upload.wikimedia.org/wikipedia/en/c/c1/The_Matrix_Poster.jpg",
+                         Featured = true
           
                      },
                     new Product
@@ -131,6 +133,7 @@ namespace AllenEcommerceBlazorApp.Server.Data
                         Title = "Day of the Tentacle",
                         Description = "Day of the Tentacle, also known as Maniac Mansion II: Day of the Tentacle, is a 1993 graphic adventure game developed and published by LucasArts. It is the sequel to the 1987 game Maniac Mansion.",
                         ImageUrl = "https://upload.wikimedia.org/wikipedia/en/7/79/Day_of_the_Tentacle_artwork.jpg",
+                        Featured = true
                      
 
                     },

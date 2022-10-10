@@ -11,6 +11,19 @@ namespace AllenEcommerceBlazorApp.Server.Services.ProductServices
             _context = context;
         }
 
+        public async Task<ServiceResponse<List<Product>>> GetFeaturedProducts()
+        {
+            var response = new ServiceResponse<List<Product>>
+            {
+                Data = await _context.Products
+                       .Where(p => p.Featured)
+                       .Include(p => p.Variants)
+                       .ToListAsync()
+            };
+
+            return response;
+        }
+
         // Find a specific product method
 
         public async Task<ServiceResponse<Product>> GetProductAsync(int productId)
