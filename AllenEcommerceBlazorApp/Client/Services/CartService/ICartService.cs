@@ -12,6 +12,8 @@ namespace AllenEcommerceBlazorApp.Client.Services.CartService
 
         Task<List<CartProductResponseDTO>> GetCartProducts();
 
+        Task RemoveProductFromCart(int productId, int productTypeId);
+
     }
 }
 
