@@ -33,6 +33,7 @@
     <None Remove="Services\ProductServices\" />
     <None Remove="Services\CategoryService\" />
     <None Remove="Services\CartService\" />
+    <None Remove="Services\AuthService\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -40,5 +41,6 @@
     <Folder Include="Services\ProductServices\" />
     <Folder Include="Services\CategoryService\" />
     <Folder Include="Services\CartService\" />
+    <Folder Include="Services\AuthService\" />
   </ItemGroup>
 </Project>
