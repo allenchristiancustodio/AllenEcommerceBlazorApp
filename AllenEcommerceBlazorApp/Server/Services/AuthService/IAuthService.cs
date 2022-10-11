@@ -7,6 +7,8 @@ namespace AllenEcommerceBlazorApp.Server.Services.AuthService
 
         Task<bool> UserExist(string email);
 
+        Task<ServiceResponse<string>> Login(string email, string password);
+            
     }
 }
 

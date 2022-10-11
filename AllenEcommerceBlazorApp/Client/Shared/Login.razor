@@ -1,0 +1,31 @@
+﻿@page "/login"
+
+<PageTitle>Login</PageTitle>
+
+<EditForm Model="user" OnValidSubmit="HandleLogin">
+    <DataAnnotationsValidator></DataAnnotationsValidator>
+    <div class="mb-3">
+        <label for="email">Email</label>
+        <InputText id="email" class="form-control" @bind-Value="user.Email"></InputText>
+        <ValidationMessage For="@(()=>user.Email)"></ValidationMessage>
+    </div>
+    <div class="mb-3">
+        <label for="password">Password</label>
+        <InputText id="password" class="form-control" @bind-Value="user.Password" type="password"></InputText>
+        <ValidationMessage For="@(()=>user.Password)"></ValidationMessage>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+   
+
+</EditForm>
+@code {
+
+    private UserLogin user = new UserLogin();
+
+    private async Task HandleLogin()
+    {
+        Console.WriteLine("Log me in");
+    }
+
+}
+
