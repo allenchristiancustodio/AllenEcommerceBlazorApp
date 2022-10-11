@@ -4,6 +4,7 @@ global using AllenEcommerceBlazorApp.Client.Services.ProductServices;
 global using AllenEcommerceBlazorApp.Client.Services.CategoryService;
 global using AllenEcommerceBlazorApp.Client.Services.CartService;
 global using AllenEcommerceBlazorApp.Client.Services.AuthService;
+global using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using AllenEcommerceBlazorApp.Client;
@@ -19,6 +20,9 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddOptions();
+builder.Services.AddAuthorizationCore();
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthStateProvider>();
 
 await builder.Build().RunAsync();
 
