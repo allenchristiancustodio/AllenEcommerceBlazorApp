@@ -2,6 +2,8 @@
 @inject IAuthService AuthService
 @inject ILocalStorageService LocalStorage
 @inject NavigationManager NavigationManager
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@using Microsoft.AspNetCore.WebUtilities
 
 <PageTitle>Login</PageTitle>
 
@@ -28,6 +30,17 @@
 
     private UserLogin user = new UserLogin();
     private string errorMessage = string.Empty;
+    private string returnUrl = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        var uri = NavigationManager.ToAbsoluteUri(NavigationManager.Uri);
+        if (QueryHelpers.ParseQuery(uri.Query).TryGetValue("returnUrl", out var url))
+        {
+            returnUrl = url;
+        }
+
+    }
 
 
     private async Task HandleLogin()
@@ -38,7 +51,8 @@
             errorMessage = string.Empty;
 
             await LocalStorage.SetItemAsync("authToken", result.Data);
-            NavigationManager.NavigateTo("");
+            await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            NavigationManager.NavigateTo(returnUrl);
         }
         else
         {
