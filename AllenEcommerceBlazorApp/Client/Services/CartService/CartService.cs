@@ -1,4 +1,5 @@
 ﻿using System;
+using AllenEcommerceBlazorApp.Shared;
 using Blazored.LocalStorage;
 
 namespace AllenEcommerceBlazorApp.Client.Services.CartService
@@ -27,7 +28,20 @@ namespace AllenEcommerceBlazorApp.Client.Services.CartService
             {
                 cart = new List<CartItem>();
             }
-            cart.Add(cartItem);
+
+
+            var sameItem = cart.Find(x => x.ProductId == cartItem.ProductId && x.ProductId == cartItem.ProductTypeId);
+
+            if (sameItem == null)
+            {
+                cart.Add(cartItem);
+            }
+
+            else
+            {
+                sameItem.Quantity += cartItem.Quantity;
+            }
+           
 
             await _localStorage.SetItemAsync("cart", cart);
             OnChange.Invoke();
@@ -71,6 +85,25 @@ namespace AllenEcommerceBlazorApp.Client.Services.CartService
                 OnChange.Invoke();
             }
                 
+        }
+
+        public  async Task  UpdateQuantity(CartProductResponseDTO product)
+        {
+            var cart = await _localStorage.GetItemAsync<List<CartItem>>("cart");
+
+            if (cart == null)
+            {
+                return;
+            }
+
+            var cartItem = cart.Find(x => x.ProductId == product.ProductId
+            && x.ProductTypeId == product.ProductTypeId);
+            if (cartItem != null)
+            {
+                cartItem.Quantity = product.Quantity;
+                await _localStorage.SetItemAsync("cart", cart);
+            
+            }
         }
     }
 }

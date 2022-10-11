@@ -7,6 +7,8 @@ namespace AllenEcommerceBlazorApp.Shared
 
         public int ProductTypeId { get; set; }
 
+        public int Quantity { get; set; } = 1;
+
     }
 }
 
