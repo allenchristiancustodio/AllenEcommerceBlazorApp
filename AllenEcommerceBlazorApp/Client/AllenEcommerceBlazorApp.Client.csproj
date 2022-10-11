@@ -25,11 +25,13 @@
     <None Remove="Services\CategoryService\" />
     <None Remove="Blazored.LocalStorage" />
     <None Remove="Services\CartService\" />
+    <None Remove="Services\AuthService\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Services\ProductServices\" />
     <Folder Include="Services\CategoryService\" />
     <Folder Include="Services\CartService\" />
+    <Folder Include="Services\AuthService\" />
   </ItemGroup>
 </Project>

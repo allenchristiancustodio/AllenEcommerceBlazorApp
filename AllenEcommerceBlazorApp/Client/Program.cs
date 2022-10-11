@@ -3,6 +3,7 @@ global using AllenEcommerceBlazorApp.Shared;
 global using AllenEcommerceBlazorApp.Client.Services.ProductServices;
 global using AllenEcommerceBlazorApp.Client.Services.CategoryService;
 global using AllenEcommerceBlazorApp.Client.Services.CartService;
+global using AllenEcommerceBlazorApp.Client.Services.AuthService;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using AllenEcommerceBlazorApp.Client;
@@ -17,6 +18,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 await builder.Build().RunAsync();
 
