@@ -13,6 +13,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.9" PrivateAssets="all" />
     <PackageReference Include="Blazored.LocalStorage" Version="4.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="6.0.10" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +27,7 @@
     <None Remove="Blazored.LocalStorage" />
     <None Remove="Services\CartService\" />
     <None Remove="Services\AuthService\" />
+    <None Remove="Microsoft.AspNetCore.Components.Authorization" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
