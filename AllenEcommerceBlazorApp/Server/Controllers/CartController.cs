@@ -40,6 +40,20 @@ namespace AllenEcommerceBlazorApp.Server.Controllers
         {
             return await _cartService.GetCartItemsCount();
         }
+
+        [HttpGet]
+        public async Task<ActionResult<ServiceResponse<List<CartProductResponseDTO>>>> GetDbCartProducts()
+        {
+            var result = await _cartService.GetDbCartProducts();
+            return Ok(result);
+        }
+
+        [HttpPost("add")]
+        public async Task<ActionResult<ServiceResponse<bool>>> AddToCary(CartItem cartItem)
+        {
+            var result = await _cartService.AddtoCart(cartItem);
+            return Ok(result);
+        }
     }
 }
 

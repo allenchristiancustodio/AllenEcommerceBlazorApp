@@ -10,6 +10,10 @@ namespace AllenEcommerceBlazorApp.Server.Services.CartService
 
         Task<ServiceResponse<int>> GetCartItemsCount();
 
+        Task<ServiceResponse<List<CartProductResponseDTO>>> GetDbCartProducts();
+
+        Task<ServiceResponse<bool>> AddtoCart(CartItem cartItem);
+
     }
 }
 

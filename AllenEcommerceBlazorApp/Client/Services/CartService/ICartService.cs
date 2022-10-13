@@ -8,8 +8,6 @@ namespace AllenEcommerceBlazorApp.Client.Services.CartService
 
         Task AddToCart(CartItem cartItem);
 
-        Task<List<CartItem>> GetCartItems();
-
         Task<List<CartProductResponseDTO>> GetCartProducts();
 
         Task RemoveProductFromCart(int productId, int productTypeId);
