@@ -1,22 +1,28 @@
 ﻿using System;
+using System.Security.Claims;
 
 namespace AllenEcommerceBlazorApp.Server.Services.CartService
 {
     public class CartService : ICartService
     {
         private readonly DataContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public CartService(DataContext context)
+        public CartService(DataContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
+
+        private int GetUserId() => int.Parse(_httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier));
+       
 
         public async Task<ServiceResponse<List<CartProductResponseDTO>>> GetCartProducts(List<CartItem> cartItems)
         {
             var result = new ServiceResponse<List<CartProductResponseDTO>>
             {
                 Data = new List<CartProductResponseDTO>()
-             };
+            };
 
             foreach (var item in cartItems)
             {
@@ -57,6 +63,24 @@ namespace AllenEcommerceBlazorApp.Server.Services.CartService
             return result;
 
         }
+
+        public async Task<ServiceResponse<List<CartProductResponseDTO>>> StoreCartItems(List<CartItem> cartItems)
+        {
+            cartItems.ForEach(cartItem => cartItem.UserId = GetUserId());
+            _context.CartItems.AddRange(cartItems);
+
+            await _context.SaveChangesAsync();
+
+            return await GetCartProducts(await _context.CartItems.Where(ci => ci.UserId == GetUserId()).ToListAsync());  
+        }
+
+        public async Task<ServiceResponse<int>> GetCartItemsCount()
+        {
+            var count = (await _context.CartItems.Where(ci => ci.UserId == GetUserId()).ToListAsync()).Count;
+
+            return new ServiceResponse<int> { Data = count };
+        }
     }
 }
 
+            

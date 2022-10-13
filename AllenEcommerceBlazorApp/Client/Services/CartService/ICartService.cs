@@ -16,7 +16,9 @@ namespace AllenEcommerceBlazorApp.Client.Services.CartService
 
         Task UpdateQuantity(CartProductResponseDTO product);
 
+        Task StoreCartItems(bool emptyLocalCart);
 
+        Task GetCartItemsCount();
 
     }
 }

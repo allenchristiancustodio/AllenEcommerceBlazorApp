@@ -3,6 +3,7 @@
 @inject ILocalStorageService LocalStorage
 @inject NavigationManager NavigationManager
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject ICartService CartService
 @using Microsoft.AspNetCore.WebUtilities
 
 <PageTitle>Login</PageTitle>
@@ -52,9 +53,11 @@
 
             await LocalStorage.SetItemAsync("authToken", result.Data);
             await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            await CartService.StoreCartItems(true);
+            await CartService.GetCartItemsCount();
             NavigationManager.NavigateTo(returnUrl);
         }
-        else
+        else 
         {
             errorMessage = result.Message;
         }
