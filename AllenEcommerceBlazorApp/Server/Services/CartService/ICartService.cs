@@ -16,6 +16,8 @@ namespace AllenEcommerceBlazorApp.Server.Services.CartService
 
         Task<ServiceResponse<bool>> UpdateQuantity(CartItem cartItem);
 
+        Task<ServiceResponse<bool>> RemoveItemFromCart(int productId,int productTypeId);
+
     }
 }
 
