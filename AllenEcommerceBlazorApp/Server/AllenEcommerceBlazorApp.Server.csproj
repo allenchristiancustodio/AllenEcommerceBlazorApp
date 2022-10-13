@@ -36,6 +36,7 @@
     <None Remove="Services\CartService\" />
     <None Remove="Services\AuthService\" />
     <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Services\OrderService\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
@@ -44,5 +45,6 @@
     <Folder Include="Services\CategoryService\" />
     <Folder Include="Services\CartService\" />
     <Folder Include="Services\AuthService\" />
+    <Folder Include="Services\OrderService\" />
   </ItemGroup>
 </Project>

@@ -16,6 +16,9 @@ namespace AllenEcommerceBlazorApp.Server.Data
             modelBuilder.Entity<ProductVariant>()
                 .HasKey(p => new { p.ProductId, p.ProductTypeId });
 
+            modelBuilder.Entity<OrderItem>()
+               .HasKey(oi => new { oi.OrderId, oi.ProductId, oi.ProductTypeId });
+
 
 
             modelBuilder.Entity<ProductType>().HasData(
@@ -288,6 +291,10 @@ namespace AllenEcommerceBlazorApp.Server.Data
         public DbSet<User> Users { get; set; }
 
         public DbSet<CartItem> CartItems { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderItem> OrderItems { get; set; }
     }
 }
 
