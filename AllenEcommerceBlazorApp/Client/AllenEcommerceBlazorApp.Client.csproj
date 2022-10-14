@@ -32,6 +32,7 @@
     <None Remove="Microsoft.AspNetCore.WebUtilities" />
     <None Remove="Services\OrderService\" />
     <None Remove="Services\AddressService\" />
+    <None Remove="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
@@ -41,5 +42,6 @@
     <Folder Include="Services\AuthService\" />
     <Folder Include="Services\OrderService\" />
     <Folder Include="Services\AddressService\" />
+    <Folder Include="Pages\Admin\" />
   </ItemGroup>
 </Project>

@@ -16,7 +16,11 @@
                 <a href="profile" class="dropdown-item">Profile</a>
                 <a href="orders" class="dropdown-item">Orders</a>
                 <hr />
+                <AdminMenu></AdminMenu>
+              
+
                 <button @onclick="Logout" class="dropdown-item">Log out</button>
+
             </Authorized>
             <NotAuthorized>
                 <a href="login?returnUrl=@NavigationManager.ToBaseRelativePath(NavigationManager.Uri)" class="dropdown-item">Login</a>
