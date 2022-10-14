@@ -6,6 +6,9 @@ namespace AllenEcommerceBlazorApp.Server.Services.OrderService
 
         Task<ServiceResponse<bool>> PlaceOrder();
 
+        Task<ServiceResponse<List<OrderOverviewResponseDTO>>> GetOrders();
+
+        Task<ServiceResponse<OrderDetailsResponse>> GetOrderDetails(int orderId);
 
     }
 }
