@@ -6,6 +6,7 @@ global using AllenEcommerceBlazorApp.Server.Services.CategoryService;
 global using AllenEcommerceBlazorApp.Server.Services.CartService;
 global using AllenEcommerceBlazorApp.Server.Services.AuthService;
 global using AllenEcommerceBlazorApp.Server.Services.OrderService;
+global using AllenEcommerceBlazorApp.Server.Services.AddressService;
 
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -32,6 +33,7 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IAddressService, AddressService>();
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

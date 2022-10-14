@@ -31,6 +31,7 @@
     <None Remove="Microsoft.AspNetCore.Components.Authorization" />
     <None Remove="Microsoft.AspNetCore.WebUtilities" />
     <None Remove="Services\OrderService\" />
+    <None Remove="Services\AddressService\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Services\" />
@@ -39,5 +40,6 @@
     <Folder Include="Services\CartService\" />
     <Folder Include="Services\AuthService\" />
     <Folder Include="Services\OrderService\" />
+    <Folder Include="Services\AddressService\" />
   </ItemGroup>
 </Project>
