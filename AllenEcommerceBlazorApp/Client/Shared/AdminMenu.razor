@@ -2,11 +2,12 @@
 @using System.Security.Claims
 
 
-@if(authorized)
-            {
-                <a class="dropdown-item" href="admin/categories">Categories</a>
-                <hr/>
-            }
+@if (authorized)
+{
+    <a class="dropdown-item" href="admin/categories">Categories</a>
+    <a class="dropdown-item" href="admin/product-types">ProductTypes</a>
+    <hr />
+}
 
 @code {
 
